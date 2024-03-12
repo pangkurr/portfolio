@@ -1,25 +1,10 @@
 window.onload = () => {
   if(/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)) {
     setTimeout(scrollTo, 0, 0, 1);
-    requestFullscreen();
     alert("가로모드로 전환 후 시청해주세요.");
-    Android.hideStatusBar(); // 안드로이드의 Java 함수 호출
-  }
-};
-
-function requestFullscreen() {
-  const element = document.documentElement;
-  if (element.requestFullscreen) {
-      // element.requestFullscreen();
-  } else if (element.mozRequestFullScreen) {
-      element.mozRequestFullScreen();
-  } else if (element.webkitRequestFullscreen) {
-      element.webkitRequestFullscreen();
-  } else if (element.msRequestFullscreen) {
-      element.msRequestFullscreen();
-  }
+    Android.hideStatusBar();
+  };
 }
-
 // aos
 AOS.init();
 
