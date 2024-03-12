@@ -1,0 +1,1122 @@
+:root{
+  --text-size:16px;
+  --body-bg:#fffff0;
+  --container-width:100%;
+  --container-height:100%;
+  --sec-title-bg:#111;
+  --sec-pod-width:10px;
+  --fix-size2:2rem;
+  --snow-trasnform:0%;
+  --mouse-width:35px;
+  --mouse-height:50px;
+  --mouseball-width:5px;
+  --mouseball-height:10px;
+  --tree-color:#623400;
+}
+/*new font*/
+@font-face {
+  src: url("dist/font/Jalnan2TTF.ttf");
+  font-family: "jalnan";
+}
+
+html{
+  scroll-behavior: smooth;
+}
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-size: var(--text-size);
+}
+body{
+  width: 100%;
+  height: 100vh;
+  background: var(--body-bg);
+  position: relative;
+  font-family: "jalnan";
+}
+body::-webkit-scrollbar{
+  display: none;
+}
+#container{
+  width: var(--container-width);
+  height:var(--container-height);
+  position: relative;
+}
+.section{
+  width: 100%;
+  height: 100vh;
+  position: relative;
+  display: block;
+}
+.section .section-title{
+  padding:1rem 2rem;
+  background:var(--sec-title-bg);
+  width:fit-content;
+  color:#fff;
+  font-size: 1.5rem;
+  position: absolute;
+  left:0%;
+  top:1rem;
+}
+
+.section .section-title::before,.section .section-title::after{
+  content: "";
+  position: absolute;
+  left:100%
+}
+
+.section .section-title::before{
+  top:0%;
+  border-top: var(--sec-pod-width) solid var(--sec-title-bg);
+  border-left: var(--sec-pod-width) solid var(--sec-title-bg);
+  border-bottom: var(--sec-pod-width) solid transparent;
+  border-right: var(--sec-pod-width) solid transparent;
+}
+.section .section-title::after{
+  bottom:0%;
+  border-bottom: var(--sec-pod-width) solid var(--sec-title-bg);
+  border-left: var(--sec-pod-width) solid var(--sec-title-bg);
+  border-top: var(--sec-pod-width) solid transparent;
+  border-right: var(--sec-pod-width) solid transparent;
+}
+
+/* home */
+#home{
+  background: linear-gradient(180deg, rgba(2,0,36,1) 0%, rgba(9,38,121,1) 50%, rgba(1, 0, 61, 0.835) 100%);
+}
+#home .btnbox{
+  display: flex;
+  position: absolute;
+  left:0%;
+  top:0%;
+  width:15%;
+  height:fit-content;
+  gap:0.5rem;
+  z-index:1;
+  display: none;
+}
+#home .btnbox .seasonBtn{
+  flex:1 1 auto;
+  cursor: pointer;
+}
+
+#home .seasonBtn img{
+  width: 100%;
+  height: 100%;
+}
+/* 제작자 표시 */
+#home .maker{
+  display: none;
+}
+
+#home .mouseicon{
+  position: absolute;
+  bottom:10%;
+  left:50%;
+  transform: translateX(-50%);
+  width: fit-content;
+  height: fit-content;
+  color:#fff;
+  text-align: center;
+  animation: downscroll 2s infinite; 
+}
+
+@keyframes downscroll {
+  0%{
+    transform: translateY(20px);
+  }
+
+  50%{
+    transform: translateY(0px);
+  }
+  100%{
+    transform: translateY(20px);
+  }
+}
+#home .mouseicon .mouse{
+  position: relative;
+  width:var(--mouse-width);
+  height:var(--mouse-height);
+  border:3px solid #fff;
+  border-radius: 25%;
+  margin-bottom: 10px;
+}
+#home .mouseicon .mouseball{
+  position: absolute;
+  top:15%;
+  left:50%;
+  transform: translate(-50%);
+  width:var(--mouseball-width);
+  height:var(--mouseball-height);
+  background: #fff;
+}
+#home #aniText{
+  position: absolute;
+  top:50%;
+  left:50%;
+  transform: translate(-50%,-50%);
+  color: #fff;
+  font-size: 3em;
+}
+/* 계절 */
+.season {
+  display: none;
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  overflow: hidden;
+}
+.season.winter{
+  display: flex;
+  color:#fff;
+}
+.season.winter .snowbg{
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+.season.winter .snowball,.season.winter .snowflake{
+  display: inline-block;
+  position: absolute;
+}
+.moon{
+  position: absolute;
+  top:0%;
+  left:50%;
+  transform: translateX(-50%);
+  width:200px;
+  height:200px;
+  border-radius: 50%;
+  background: linear-gradient(45deg,rgb(255, 255, 93),rgb(255, 178, 34));
+  box-shadow: 0px 0px 20px 5px rgba(255, 255, 93,0.5),-5px 5px 20px 10px rgba(255, 255, 93,0.3),10px 0px 20px 5px rgba(214, 214, 27, 0.3);
+}
+.santa{
+  display: flex;
+  position: absolute;
+  top:2.5%;
+  left:-10%;
+  width:100px;
+  height:100px;
+  animation: santaMove 20s infinite;
+}
+.santa img{
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.santa-star{
+  position: absolute;
+  right:100%;
+  bottom:0%;
+  width:20px;
+  height:20px;
+}
+.santa-star .s-star{
+  position: absolute;
+  right:0%;
+  bottom:0%;
+  cursor:none;
+  font-size: 12px;
+  animation: santaSmoke 1s infinite;
+}
+.santa-star .s-star:nth-child(1){
+  animation-delay: 0s;
+}
+.santa-star .s-star:nth-child(2){
+  animation-delay: 0.25s;
+}
+.santa-star .s-star:nth-child(3){
+  animation-delay: 0.5s;
+}
+.santa-star .s-star:nth-child(4){
+  animation-delay: 0.75s;
+}
+@keyframes santaMove{
+  0%{
+    top:2.5%;
+    left:-10%;
+    transform:scale(0.65) rotateY(0);
+  }
+  50%{
+    top:7%;
+    left:105%;
+    transform:scale(1) rotateY(0);
+  }
+  51%{
+    top:7%;
+    left:105%;
+    transform:scale(1) rotateY(180deg);
+  }
+  100%{
+    top:15%;
+    left:-10%;
+    transform:scale(1.2) rotateY(180deg);
+  }
+}
+@keyframes santaSmoke {
+  0%{
+    right:0%;
+    bottom:0%;
+    font-size: 12px;
+    opacity: 1;
+  }
+  100%{
+    right:200%;
+    bottom:-50%;
+    font-size:6px;
+    opacity: 0.2;
+  }
+}
+/* 눈 바닥 */
+.snowfloor-left,.snowfloor-center,.snowfloor-right{
+  position: absolute;
+  background: #fff;
+}
+.snowfloor-left{
+  left:0%;
+  bottom:0%;
+  width:35%;
+  height:15%;
+  border-top-right-radius: 100%;
+}
+/* 나무 밑동 */
+.snowtree{
+  position: absolute;
+  left:10%;
+  bottom:50%;
+  width:200px;
+  height:125px;
+  background: var(--tree-color);
+  border-top-left-radius: 30%;
+  border-top-right-radius: 30%;
+}
+/* 나무 나이테쪽 */
+.tree-top{
+  position: absolute;
+  top:25%;
+  transform: translateY(-50%);
+  width:100%;
+  height:50%;
+  background: #fde5c9;
+  border:1px solid rgba(0,0,0,0.5);
+  border-radius: 40%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.tree-top::before{
+  content: "";
+  position: absolute;
+  border-radius: 40%;
+  width:100%;
+  height:100%;
+  transform: scale(0.8);
+  border:1px solid rgba(0,0,0,0.8);
+}
+.tree-top::after{
+  content: "";
+  position: absolute;
+  border-radius: 30%;
+  width:100%;
+  height:100%;
+  transform: scale(0.6);
+  border:1px solid rgba(0,0,0,0.8);
+}
+/* 나이테 쪽 잔뿌리 */
+.tree-top .twig{
+  position: absolute;
+  left:100%;
+  top:50%;
+  width:25px;
+  height: 50px;
+  transform: rotate(15deg);
+  border-top-left-radius: 50%;
+  border-bottom-right-radius: 100%;
+  background: var(--tree-color);
+}
+.tree-top .twig::before,.tree-top .twig::after{
+  content: '';
+  position: absolute;
+  bottom:100%;
+  background: green;
+  width:75%;
+  height:75%;
+  border-top-left-radius: 100%;
+  border-bottom-right-radius: 100%;
+}
+.tree-top .twig::before{
+  left:0%;
+  transform: rotate(-30deg);
+}
+.tree-top .twig::after{
+  left:100%;
+  transform: rotate(10deg);
+}
+.snowtree:hover .twig{
+  animation: treeHello 2s infinite;
+}
+
+@keyframes treeHello {
+  0%{
+    transform: rotate(15deg);
+  }
+  50%{
+    transform: rotate(30deg);
+  }
+  100%{
+    transform: rotate(15deg);
+  }
+}
+/* 나무 뿌리쪽 */
+.tree-bottom{
+  position: absolute;
+  top:100%;
+  left:0%;
+  width:100%;
+  height:40px;
+  display: flex;
+  justify-content: space-between;
+}
+.tree-bottom .troot{
+  height:100%;
+}
+.tree-bottom .troot:nth-child(1){
+  width:0;
+  height:0;
+  border-top: 40px solid var(--tree-color);
+  border-right:30px solid transparent;
+  border-bottom-left-radius: 100%;
+}
+.tree-bottom .troot:nth-child(2){
+  width:0;
+  height:0;
+  border-top: 40px solid var(--tree-color);
+  border-left: 30px solid transparent;
+  border-bottom-right-radius: 100%;
+}
+.tree-bottom .troot:nth-child(3){
+  width:0;
+  height:0;
+  border-top: 40px solid var(--tree-color);
+  border-left: 30px solid transparent;
+  border-bottom-right-radius: 100%;
+}
+.snowfloor-center{
+  width:100%;
+  height:2.5%;
+  left:0%;
+  bottom:0%;
+  box-shadow: 0 0 20px 0 rgba(0,0,0,0.25);
+  border-top-left-radius: 100%;
+  border-top-right-radius: 100%;
+  z-index:1;
+}
+.snowfloor-right{
+  right:0%;
+  bottom:0%;
+  width:35%;
+  height:15%;
+  border-top-left-radius: 100%;
+}
+.snowman{
+  position: absolute;
+  width: fit-content;
+  height:fit-content;
+  left:60%;
+  bottom:60%;
+  transform: translateX(-50%);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.snowman-head,.snowman-body{
+  background: #fff;
+  border-radius: 50%;
+}
+
+.snowman-head{
+  width: 150px;
+  height: 150px;
+  transform:translateY(10px);
+}
+.snowman-head .snowman-eyes{
+  position: absolute;
+  left:50%;
+  top:30%;
+  transform: translate(-50%,-50%);
+}
+.snowman-head .snowman-eyes::before,.snowman-head .snowman-eyes::after{
+  content: '';
+  position: absolute;
+  border-radius: 50%;
+  width:5px;
+  height:5px;
+  background: #000;
+}
+.snowman-head .snowman-eyes::before{
+  transform: translateX(-20px);
+}
+.snowman-head .snowman-nose{
+  position: absolute;
+  left:60%;
+  top:50%;
+  transform: translate(-50%,-50%);
+  border-top:5px solid transparent;
+  border-bottom:5px solid transparent;
+  border-left:20px solid orange;
+}
+.snowman-head .snowman-mouse{
+  position: absolute;
+  top:70%;
+  left:50%;
+  transform: translate(-50%,-50%);
+  width:30%;
+  height:10px;
+  border-bottom-left-radius: 50%;
+  border-bottom-right-radius: 50%;
+  border-bottom:5px dashed #000;
+}
+
+.snowman-body{
+  width:250px;
+  height:250px;
+  border: 1px solid #333;
+}
+
+.snowman-body .snowman-btn{
+  display: flex;
+  flex-direction: column;
+  gap:15px;
+  position: absolute;
+  top:50%;
+  left:50%;
+  transform: translate(-50%);
+}
+.snowman-body .snowman-btn .s-btn{
+  width:15px;
+  height: 15px;
+  border-radius: 50%;
+  background: #000;
+}
+.snowman-body .snowman-arms{
+  position: absolute;
+  top:60%;
+  left:15%;
+  transform: translate(-50%,-50%) rotate(-115deg);
+  background: rgb(165, 42, 42);
+  width:40px;
+  height:10px;
+}
+.snowman-body .snowman-arms.right{
+  left:auto;
+  right:0%;
+  transform: translate(-50%,-50%) rotate(115deg);
+}
+.snowman-body .snowman-arms .s-arms{
+  position: absolute;
+  width:20px;
+  height:10px;
+  background: rgb(165, 42, 42);
+}
+
+.snowman-body .snowman-arms .s-arms:nth-child(1){
+  left:80%;
+  top:60%;
+  transform: rotate(30deg);
+}
+.snowman-body .snowman-arms .s-arms:nth-child(2){
+  left:80%;
+  top:-30%;
+  transform: rotate(-20deg);
+}
+.snowman-body .snowman-arms.right .s-arms{
+  left:auto;
+}
+.snowman-body .snowman-arms.right .s-arms:nth-child(1){
+  right:80%;
+  top:60%;
+  transform: rotate(-30deg);
+}
+.snowman-body .snowman-arms.right .s-arms:nth-child(2){
+  right:80%;
+  top:-30%;
+  transform: rotate(20deg);
+}
+.snowman:hover .snowman-body .snowman-arms.right{
+  animation: hello 2s 1;
+}
+@keyframes hello {
+  0%{
+    transform: translate(-50%,-50%) rotate(115deg);
+  }
+  25%{
+    transform: translate(-50%,-50%) rotate(140deg);
+  }
+  50%{
+    transform: translate(-50%,-50%) rotate(115deg);
+  }
+  75%{
+    transform: translate(-50%,-50%) rotate(140deg);
+  }
+  100%{
+    transform: translate(-50%,-50%) rotate(115deg);
+  }
+}
+/* myinfo */
+#myinfo {
+  background: burlywood;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#myinfo .myinfo-container{
+  width:70%;
+  height:80%;
+  border-radius: 1rem;
+  padding:1rem;
+  background: #fff;
+}
+
+#myinfo .myinfo-wrap{
+  width: 100%;
+  height: 100%;
+  border: 5px dashed #000;
+  border-radius: 1rem;
+  padding:1rem;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+#myinfo .myinfo-page{
+  width: 100%;
+  height: 100%;
+}
+#myinfo .myinfo-page.left{
+  align-content: flex-start;
+  display: flex;
+  flex-wrap: wrap;
+  padding:2rem;
+  width:40%;
+  gap: 2em;
+  line-height: 2.25em;
+}
+#myinfo .myinfo-profile{
+  width:100%;
+  height: 50%;
+  
+}
+#myinfo .myinfo-profile img{
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 50%;
+}
+#myinfo .myskill{
+  width:100%;
+}
+#myinfo .myskill .myskill-box{
+  overflow: auto;
+  width: 100%;
+  height:100%;
+  padding:0.5rem;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+#myinfo .myskill .myskill-box img{
+  height:3rem;
+  width:auto;
+}
+#myinfo .myinfo-page.right{
+  /* display: grid;
+  grid-template-columns: 50% auto; */
+  display: flex;
+  /* flex-direction: column; */
+  flex-wrap: wrap;
+  align-items: flex-start;
+  padding:2rem;
+  gap:2em;
+}
+#myinfo .myinfo-box{
+  display: flex;
+  flex-direction: column;
+  gap: 1em;
+}
+
+#myinfo .m-title{
+  font-size: 1.5em;
+}
+#myinfo .myinfo-box b{
+  font-weight: 400;
+  margin-right:1em;
+}
+
+
+/* portfolio */
+#portfolio{
+  background:url(dist/img/pokerbg-1.jpg) center/cover no-repeat;
+  height:auto;
+  padding:7.5rem 5%;
+  display: flex;
+  flex-direction: column;
+  gap: 6rem;
+}
+#portfolio .portfolio-box{
+  width: 100%;
+  height: fit-content;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  gap: 100px;
+}
+#portfolio .portfolio-box.reverse{
+  flex-direction: row-reverse;
+}
+#portfolio .slideBox{
+  position: relative;
+  width:42.5%;
+  height:400px;
+  border-left:1px solid rgba(0,0,0,0.5);
+  border-right:1px solid rgba(0,0,0,0.5);
+  box-shadow: 0 0 10px 0px rgba(255,255,255,0.5),
+  0 0 10px 5px rgba(255,255,255,0.5);
+}
+#portfolio .swiper{
+  width:100%;
+  height: 100%;
+}
+#portfolio .swiper-slide{
+  width: 100%;
+  height: 100%;
+}
+#portfolio .swiper-slide img{
+  width: 100%;
+  height: 100%;
+  object-fit: fill;
+}
+#portfolio .swiper-next,#portfolio .swiper-prev{
+  position: absolute;
+  top:0%;
+  height:100%;
+  width:10%;
+  z-index:1;
+  cursor: pointer;
+  background: rgb(255,255,255);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 2em;
+  opacity: 0.25;
+  transition: opacity .5s;
+}
+#portfolio .swiper-next:hover,
+#portfolio .swiper-prev:hover{
+  opacity: 0.75;
+}
+#portfolio .swiper-prev{
+  left:0%;
+}
+#portfolio .swiper-next{
+  right:0%;
+}
+#portfolio .swiper-next::before{
+  content: "▶";
+}
+#portfolio .swiper-prev::before{
+  content: "◀";
+}
+.swiper-pagination-progressbar .swiper-pagination-progressbar-fill{
+  background:orange;
+}
+#portfolio .slide-desc{
+  width: 40%;
+  height: auto;
+  display: flex;
+  justify-content: flex-start;
+  color: #fff;
+}
+#portfolio .slide-desc>div{
+  width:fit-content;
+}
+#portfolio .portfolio-box.reverse .slide-desc{
+  justify-content: flex-end;
+}
+
+#portfolio .slide-desc *{
+  font-size: 1.15em;
+}
+#portfolio .slide-desc .project-linkbox{
+  margin-top:var(--fix-size2);
+  font-size: 1em;
+  
+}
+#portfolio .slide-desc .project-linkbox a{
+  /* text-decoration: none; */
+  color: #fff;
+}
+#portfolio .slide-desc .project-linkbox a:hover{
+  transition: color .25s;
+  color:red;
+}
+#portfolio .slide-desc .project-linkbox .ingamebtn{
+  position: relative;
+  margin-left:var(--fix-size2);
+}
+#portfolio .slide-desc .project-linkbox .ingamebtn:hover::after{
+  content: attr(data-text);
+  position: absolute;
+  top:100%;
+  left:0;
+  color:#fff;
+  font-size: 0.75em;
+  text-wrap: nowrap;
+}
+/* 세로 프로젝트 */
+#portfolio .bada .swiper-slide,#portfolio .bada .swiper-slide{
+  display: flex;
+  justify-content: center;
+}
+#portfolio .bada .swiper-slide img{
+  width:auto;
+}
+
+/* 마무리 */
+@font-face {
+  font-family: 'UhBeeSe_hyun';
+  src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_five@.2.0/UhBeeSe_hyun.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+  }
+
+@font-face {
+  font-family: 'BagelFatOne-Regular';
+  src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_JAMO@1.0/BagelFatOne-Regular.woff2') format('woff2');
+  font-weight: normal;
+  font-style: normal;
+}
+#final{
+  background: url(dist/img/doll-kjpargeter.jpg) center/cover no-repeat;
+  width:100%;
+  height:100%;
+}
+
+.neon-title{
+  position: absolute;
+  font-family: UhBeeSe_hyun;
+  top:25%;
+  left:50%;
+  transform: translate(-50%,-50%);
+  color: #fff;
+  padding:0 3rem;
+}
+.neon-title span{
+  font-size: 200px;
+  text-shadow:
+      0 0 7px #fff,
+      0 0 10px #fff,
+      0 0 21px #fff,
+      0 0 42px #5271ff,
+      0 0 82px #5271ff,
+      0 0 92px #5271ff,
+      0 0 102px #5271ff,
+      0 0 151px #5271ff;
+  animation: bling-bling 1s linear;
+}
+.neon-title span:nth-child(2){
+  animation-delay: 1.5s;
+}
+.neon-title span:nth-child(3){
+  animation-delay: .75s;
+}
+
+@keyframes bling-bling {
+  0%{opacity: 0;}
+  20%{opacity: 1;}
+  40%{opacity: 0;}
+  60%{opacity: 1;}
+  80%{opacity: 0;}
+  100%{opacity: 1;}
+}
+
+.mail_box{
+  position: absolute;
+  top:50%;
+  left:50%;
+  transform: translate(-50%,-50%);
+  padding:1rem 2rem;
+  background: linear-gradient(30deg,rgba(255, 209, 172, 1),rgba(255, 253, 163, 1));
+  cursor: pointer;
+  border-radius: 12px;
+  border:none;
+  opacity: 0.8;
+  transition: opacity 0.5s;
+  box-shadow: 0 0 5px 2px rgba(255, 209, 172, 1),
+  0 0 15px 4px rgba(255, 253, 163, 1);
+}
+.mail_box::after{
+  content: "클릭하시면 메일 작성창으로 넘어가실 수 있습니다!!";
+  text-wrap: nowrap;
+  color: #fff;
+  position: absolute;
+  left:50%;
+  top:110%;
+  transform: translateX(-50%);
+}
+.mail_box:hover{
+  opacity: 1;
+}
+.mail_box a{
+  text-decoration: none;
+  color: #000;
+  font-size: 2rem;
+}
+
+.marquee-thx{
+  position: absolute;
+  bottom:0%;
+  display: flex;
+  justify-content: flex-start;
+  overflow: hidden;
+  background: linear-gradient(to bottom, #ffffff, #fff6dc);
+  padding: 1rem 0;
+}
+.marquee-thx h1{
+  font-size: 3rem;
+  color: #000;
+  padding:0 5rem;
+  letter-spacing:1px;
+  text-wrap: nowrap;
+  font-family: BagelFatOne-Regular;
+  animation: thxMove 10s linear infinite;
+}
+
+@keyframes thxMove {
+  0%{
+    transform: translateX(0%);
+  }
+  100%{
+    transform: translateX(-100%);
+  }
+}
+
+/* 미디어 쿼리 */
+@media only screen and (max-width:1024px) and (orientation: landscape){
+  :root{
+    --text-size:1.5vw;
+    --sec-pod-width:1vw;
+    --fix-size2:2.5vw;
+    --snow-trasnform:0%;
+    --mouse-width:4vw;
+    --mouse-height:5vw;
+    --mouseball-width:0.5vw;
+    --mouseball-height:1vw;
+  }
+  .section .section-title{
+    padding:1vw 2vw;
+    font-size: 2vw;
+    top:2vw;
+  }
+/* home */
+  #home #aniText{
+    font-size: 3vw;
+  }
+  /* 달 */
+  .moon{
+    width:20vw;
+    height:20vw;
+    background: linear-gradient(45deg,rgb(255, 255, 93),rgb(255, 178, 34));
+  }
+  /* 산타 */
+  .santa{
+    width:7.5vw;
+    height:7.5vw;
+  }
+  /* 나무 */
+  .snowtree{
+    width:20vw;
+    height:10vw;
+  }
+  /* 나이테 쪽 잔뿌리 */
+  .tree-top .twig{
+    width:2vw;
+    height: 4vw;
+  }
+  /* 나무 뿌리쪽 */
+  .tree-bottom{
+    height:5vw;
+  }
+  .tree-bottom .troot:nth-child(1){
+    border-top: 3vw solid var(--tree-color);
+    border-right:2vw solid transparent;
+  }
+  .tree-bottom .troot:nth-child(2){
+    border-top: 3vw solid var(--tree-color);
+    border-left: 2vw solid transparent;
+  }
+  .tree-bottom .troot:nth-child(3){
+    border-top: 3vw solid var(--tree-color);
+    border-left: 2vw solid transparent;
+  }
+/* 눈사람 */
+  .snowman-head{
+    width: 10vw;
+    height: 10vw;
+    transform:translateY(10px);
+  }
+  .snowman-head .snowman-eyes::before,.snowman-head .snowman-eyes::after{
+    content: '';
+    position: absolute;
+    border-radius: 50%;
+    width:0.5vw;
+    height:0.5vw;
+    background: #000;
+  }
+  .snowman-head .snowman-eyes::before{
+    transform: translateX(-2vw);
+  }
+  .snowman-head .snowman-nose{
+    border-top:0.5vw solid transparent;
+    border-bottom:0.5vw solid transparent;
+    border-left:2vw solid orange;
+  }
+  .snowman-head .snowman-mouse{
+    height:1vw;
+    border-bottom:0.5vs dashed #000;
+  }
+  
+  .snowman-body{
+    width:20vw;
+    height:20vw;
+  }
+  
+  .snowman-body .snowman-btn{
+    gap:1.5vw;
+  }
+  .snowman-body .snowman-btn .s-btn{
+    width:15px;
+    height: 15px;
+    border-radius: 50%;
+    background: #000;
+  }
+  .snowman-body .snowman-arms{
+    width:3vw;
+    height:1vw;
+  }
+  .snowman-body .snowman-arms .s-arms{
+    width:2vw;
+    height:1vw;
+  }
+
+  /* myinfo */
+  #myinfo{
+    padding-top:2vw;
+  }
+  #myinfo .myinfo-container{
+    width:80%;
+    height:80%;
+    padding:1.5vw;
+  }
+  
+  #myinfo .myinfo-wrap{
+    border: 0.5vw dashed #000;
+    padding:1vw;
+    gap:1.5vw;
+  }
+
+  #myinfo .myinfo-page.left{
+    padding:2vw;
+    gap: 2vw;
+    line-height: 2.25vw;
+  }
+  #myinfo .myskill .myskill-box{
+    padding:0.75vw;
+    gap: 1.25vw;
+  }
+  #myinfo .myskill .myskill-box img{
+    height:2.5vw;
+  }
+  #myinfo .myinfo-page.right{
+    padding:1vw;
+    gap:1vw;
+  }
+  #myinfo .myinfo-box{
+    gap: 0.5vw;
+  }
+  #myinfo .myinfo-box.edu{
+    gap:1vw;
+  }
+  #myinfo .m-title{
+    font-size: 2vw;
+  }
+  #myinfo .myinfo-box b{
+    margin-right:1.5vw;
+  }
+  
+  /* portfolio */
+  #portfolio{
+    padding:10vw 3vw;
+    gap: 6vw;
+  }
+  #portfolio .portfolio-box{
+    gap: 3vw;
+  }
+  #portfolio .slideBox{
+    width:42.5%;
+    height:25vw;
+  }
+
+  #portfolio .slide-desc *{
+    font-size: 2vw;
+  }
+  /* 세로 프로젝트 */
+  #portfolio .bada .swiper-slide,#portfolio .bada .swiper-slide{
+    display: flex;
+    justify-content: center;
+  }
+  #portfolio .bada .swiper-slide img{
+    width:auto;
+  }
+  /* 마무리 */
+  .neon-title{
+    top:25%;
+    left:50%;
+    transform: translate(-50%,-50%);
+    padding:0 3vw;
+  }
+  .neon-title span{
+    font-size: 15vw;
+    text-shadow:
+        0 0 7px #fff,
+        0 0 10px #fff,
+        0 0 21px #fff,
+        0 0 42px #5271ff,
+        0 0 82px #5271ff,
+        0 0 92px #5271ff,
+        0 0 102px #5271ff,
+        0 0 151px #5271ff;
+  }
+
+  .mail_box{
+    top:55%;
+    padding:1.5vw 2.25vw;
+    border-radius: 1vw;
+  }
+  .mail_box::after{
+    left:50%;
+    top:125%;
+  }
+  .mail_box a{
+    font-size: 2vw;
+  }
+  
+  .marquee-thx{
+    padding: 2vw 0;
+  }
+  .marquee-thx h1{
+    font-size: 3vw;
+    padding:0 5vw;
+  }
+}
