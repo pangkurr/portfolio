@@ -23,8 +23,6 @@ function requestFullscreen() {
 // aos
 AOS.init();
 
-// const winterFlake = snowBG.querySelector('.snowflake')
-// const winterSnow = snowBG.querySelector('.snowball')
 const snowBG = document.querySelector('.snowbg');
 
 function getRandomValue() {
