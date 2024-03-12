@@ -631,11 +631,11 @@ body::-webkit-scrollbar{
   width:auto;
 }
 #myinfo .myinfo-page.right{
-  /* display: grid;
-  grid-template-columns: 50% auto; */
-  display: flex;
+  display: grid;
+  grid-template-columns: 50% auto;
   /* flex-direction: column; */
-  flex-wrap: wrap;
+  /* display: flex; */
+  /* flex-wrap: wrap; */
   align-items: flex-start;
   padding:2rem;
   gap:2em;
@@ -876,6 +876,8 @@ body::-webkit-scrollbar{
 
 .marquee-thx{
   position: absolute;
+  width:100%;
+  left:0%;
   bottom:0%;
   display: flex;
   justify-content: flex-start;
@@ -1070,14 +1072,6 @@ body::-webkit-scrollbar{
 
   #portfolio .slide-desc *{
     font-size: 2vw;
-  }
-  /* 세로 프로젝트 */
-  #portfolio .bada .swiper-slide,#portfolio .bada .swiper-slide{
-    display: flex;
-    justify-content: center;
-  }
-  #portfolio .bada .swiper-slide img{
-    width:auto;
   }
   /* 마무리 */
   .neon-title{
