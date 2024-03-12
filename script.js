@@ -1,10 +1,12 @@
-window.onload = () => {
+function checkMobile(){
   if(/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)) {
     setTimeout(scrollTo, 0, 0, 1);
     alert("가로모드로 전환 후 시청해주세요.");
-    Android.hideStatusBar();
   };
 }
+window.onload = checkMobile;
+window.addEventListener("resize",checkMobile)
+
 // aos
 AOS.init();
 
