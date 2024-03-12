@@ -30,7 +30,8 @@ html{
 }
 body{
   width: 100%;
-  height: 100vh;
+  height: auto;
+  min-height:100dvh;
   background: var(--body-bg);
   position: relative;
   font-family: "jalnan";
@@ -45,7 +46,8 @@ body::-webkit-scrollbar{
 }
 .section{
   width: 100%;
-  height: 100vh;
+  height:auto;
+  min-height: 100dvh;
   position: relative;
   display: block;
 }
@@ -927,8 +929,8 @@ body::-webkit-scrollbar{
   }
   /* 달 */
   .moon{
-    width:20vw;
-    height:20vw;
+    width:17.5vw;
+    height:17.5vw;
     background: linear-gradient(45deg,rgb(255, 255, 93),rgb(255, 178, 34));
   }
   /* 산타 */
@@ -964,8 +966,8 @@ body::-webkit-scrollbar{
   }
 /* 눈사람 */
   .snowman-head{
-    width: 10vw;
-    height: 10vw;
+    width: 7.5vw;
+    height: 7.5vw;
     transform:translateY(10px);
   }
   .snowman-head .snowman-eyes::before,.snowman-head .snowman-eyes::after{
@@ -990,8 +992,8 @@ body::-webkit-scrollbar{
   }
   
   .snowman-body{
-    width:20vw;
-    height:20vw;
+    width:15vw;
+    height:15vw;
   }
   
   .snowman-body .snowman-btn{
@@ -1047,14 +1049,15 @@ body::-webkit-scrollbar{
   #myinfo .myinfo-box{
     gap: 0.5vw;
   }
-  #myinfo .myinfo-box.edu{
-    gap:1vw;
+  #myinfo .myinfo-box p{
+    font-size: 1.25vw;
   }
   #myinfo .m-title{
-    font-size: 2vw;
+    font-size: 1.75vw;
   }
   #myinfo .myinfo-box b{
-    margin-right:1.5vw;
+    margin-right:0.5vw;
+    font-size: 1.25vw;
   }
   
   /* portfolio */

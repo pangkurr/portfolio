@@ -1,3 +1,23 @@
+window.onload = () => {
+  if(/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)) {
+    requestFullscreen();
+    alert("가로모드로 전환 후 시청해주세요.");
+  }
+};
+
+function requestFullscreen() {
+  const element = document.documentElement;
+  if (element.requestFullscreen) {
+      element.requestFullscreen();
+  } else if (element.mozRequestFullScreen) {
+      element.mozRequestFullScreen();
+  } else if (element.webkitRequestFullscreen) {
+      element.webkitRequestFullscreen();
+  } else if (element.msRequestFullscreen) {
+      element.msRequestFullscreen();
+  }
+}
+
 // aos
 AOS.init();
 
@@ -63,6 +83,7 @@ let typed = new Typed('#aniText', {
 	fadeOut:true, //true: 사라지기, false: 한글자씩 지우기
 	fadeOutDelay:1000, //사라지는 타이밍
 	loop:false, //반복 유무
+  showCursor:false,
 	// cursorChar:"◀", //깜박거리는 문자열 = 기본값은 "|"
 	autoInsertCss:true, //fade같이 css 사용하는거 자동조절 x
 	// backSpeed:50, //한글자씩 지워지는 속도
