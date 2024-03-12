@@ -929,8 +929,8 @@ body::-webkit-scrollbar{
   }
   /* 달 */
   .moon{
-    width:17.5vw;
-    height:17.5vw;
+    width:15vw;
+    height:15vw;
     background: linear-gradient(45deg,rgb(255, 255, 93),rgb(255, 178, 34));
   }
   /* 산타 */
