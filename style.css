@@ -292,6 +292,7 @@ body::-webkit-scrollbar{
   background: var(--tree-color);
   border-top-left-radius: 30%;
   border-top-right-radius: 30%;
+  box-shadow: -0.5vw 1.5vw 10px 0px rgba(0,0,0,0.3);
 }
 /* 나무 나이테쪽 */
 .tree-top{
@@ -426,12 +427,13 @@ body::-webkit-scrollbar{
   width: fit-content;
   height:fit-content;
   left:60%;
-  bottom:60%;
+  bottom:40%;
   transform: translateX(-50%);
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  
 }
 .snowman-head,.snowman-body{
   background: #fff;
@@ -442,6 +444,41 @@ body::-webkit-scrollbar{
   width: 150px;
   height: 150px;
   transform:translateY(10px);
+}
+.snowman-head .snowman-hat{
+  position: absolute;
+  bottom:90%;
+  left:25%;
+  width:80%;
+  height:10%;
+  border-radius: 50%;
+  background: #000;
+  transform: rotate(15deg);
+}
+.snowman-head .snowman-hat::before{
+  content: '';
+  position: absolute;
+  width:60%;
+  height:10px;
+  background: linear-gradient(to right, #ff0000, #ff9797);
+  z-index:2;
+  left:50%;
+  bottom:50%;
+  transform: translateX(-50%);
+}
+.snowman-head .snowman-hat::after{
+  content: '';
+  position: absolute;
+  z-index: 1;
+  width:60%;
+  height:50px;
+  background: #000;
+  bottom:70%;
+  left:50%;
+  transform: translateX(-50%);
+  border-top-left-radius: 25%;
+  border-top-right-radius: 25%;
+
 }
 .snowman-head .snowman-eyes{
   position: absolute;
@@ -484,7 +521,7 @@ body::-webkit-scrollbar{
 .snowman-body{
   width:250px;
   height:250px;
-  border: 1px solid #333;
+  box-shadow: 2vw 1.5vw 10px 0px rgba(0,0,0,0.3);
 }
 
 .snowman-body .snowman-btn{
@@ -969,6 +1006,9 @@ body::-webkit-scrollbar{
     width: 7.5vw;
     height: 7.5vw;
     transform:translateY(10px);
+  }
+  .snowman-head .snowman-hat::after{
+    height:7vw;
   }
   .snowman-head .snowman-eyes::before,.snowman-head .snowman-eyes::after{
     content: '';
