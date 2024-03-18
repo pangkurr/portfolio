@@ -1,3 +1,13 @@
+// aos
+AOS.init();
+
+const naviBtn = document.querySelectorAll(".naviBtn");
+naviBtn.forEach(btn=>{
+  
+  const naviColor = btn.getAttribute("data-color");
+  btn.style.setProperty("--navi-color",naviColor);
+})
+
 function checkMobile(){
   if(/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)) {
     setTimeout(scrollTo, 0, 0, 1);
@@ -5,10 +15,7 @@ function checkMobile(){
   };
 }
 window.onload = checkMobile;
-window.addEventListener("resize",checkMobile)
-
-// aos
-AOS.init();
+window.addEventListener("resize",checkMobile);
 
 const snowBG = document.querySelector('.snowbg');
 
@@ -143,3 +150,94 @@ const Lswiper = new Swiper('.L-swiper', {
       prevEl: '.evolution .swiper-prev',
     },
   });
+
+
+import { annotate } from 'https://unpkg.com/rough-notation?module';
+
+const graffiti = document.querySelector(".graffiti");
+const merit = document.querySelector(".highlight.merit");
+let merit_ani = null;
+
+
+window.addEventListener('scroll', function() {
+  if (isVisible(graffiti)) {
+    setTimeout(function(){
+      if (!merit_ani) {
+        merit_ani = annotate(merit,{type:"highlight" ,color:"yellow"});
+      }
+        merit_ani.show();
+    },300)
+  } else {
+    if (merit_ani) {
+      merit_ani.remove();
+      merit_ani = null;
+    }
+  }
+});
+
+function isVisible(el) {
+  //요소가 나타난다면 rect 값이 생길것임.
+  let rect = el.getBoundingClientRect();
+  return (
+    rect.top >= 0 &&
+    rect.left >= 0 &&
+    rect.bottom <= (window.innerHeight || document.documentElement.clientHeight) &&
+    rect.right <= (window.innerWidth || document.documentElement.clientWidth)
+  );
+}
+
+
+window.addEventListener('scroll', function() {
+  let scrollPosition = window.scrollY;
+  let lastSection = document.querySelectorAll('.section')[3];
+  let lastSectionStart = lastSection.offsetTop;
+  let lastSectionMiddle = lastSectionStart - lastSection.offsetHeight / 2;
+  if (scrollPosition >= lastSectionMiddle) {
+    const neonSpan = document.querySelectorAll(".neon-title span");
+    neonSpan.forEach((sp)=>{
+      sp.classList.add("txtAni");
+    })
+  }else{
+    const neonSpan = document.querySelectorAll(".neon-title span");
+    neonSpan.forEach((sp)=>{
+      sp.classList.remove("txtAni");
+    })
+  }
+});
+
+// navi
+
+
+window.addEventListener("scroll",function(){
+  let scrollPosition = window.scrollY;
+  let infoSection = document.querySelectorAll('.section')[1].offsetTop;
+  let nextSection = document.querySelectorAll('.section')[2].offsetTop;
+  const naviWrap = document.querySelector(".naviWrap");
+  
+  if (isMobileDevice() && scrollPosition >= infoSection && scrollPosition < nextSection) {
+    naviWrap.style.flexDirection = "column";
+  } else {
+    naviWrap.style.flexDirection = "row";
+  }
+})
+
+
+const naviButtons = document.querySelectorAll('.naviBtn');
+const sections = document.querySelectorAll('.section');
+
+naviButtons.forEach((btn, index) => {
+  btn.addEventListener('click', () => {
+    scrollToSection(sections[index]);
+  });
+});
+
+function scrollToSection(section) {
+  if (section) {
+    section.scrollIntoView({ behavior: 'smooth' });
+  }
+}
+
+// 모바일 기기인지 여부를 확인하는 함수
+function isMobileDevice() {
+  return (typeof window.orientation !== "undefined") || (navigator.userAgent.indexOf('IEMobile') !== -1);
+}

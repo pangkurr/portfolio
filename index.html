@@ -3,7 +3,8 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Hello My Portfolio</title>
+    <link rel="icon" href="dist/img/tiger.png">
+    <title>Yun Jung Hyo</title>
     <!-- library -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css" />
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
@@ -13,6 +14,13 @@
   </head>
   <body>
     <div id="container">
+      <!-- navigation -->
+      <div class="naviWrap">
+        <div class="naviBtn" data-color="#0011ff"><img src="dist/img/home.png" alt="제작자:Icons8"></div>
+        <div class="naviBtn" data-color="#deb887"><img src="dist/img/user.png" alt="제작자:Icons8"></div>
+        <div class="naviBtn" data-color="#1b5928"><img src="dist/img/document.png" alt="제작자:Icons8"></div>
+        <div class="naviBtn" data-color="#18181a"><img src="dist/img/thumb.png" alt="제작자:Icons8"></div>
+      </div>
       <!-- 메인 배너 -->
       <div id="home" class="section">
         <!-- 버튼 -->
@@ -168,6 +176,11 @@
                 <div class="m-title">Hobby</div>
                 <p>게임 (LeagueOfLegends , MapleStory, PUBG)</p>
               </div>
+
+              <div class="myinfo-box graffiti" data-aos="fade-down" data-aos-duration="250" data-aos-delay="100">
+                <div class="m-title">Add</div>
+                <p class="highlight merit">디자인 시안을 보며 퍼블리싱 하는 것에 자신있음</p>
+              </div>
             </div>
           </div>
         </div>
@@ -219,6 +232,7 @@
               <p>프로젝트명 : L-holdem</p>
               <p>제작기간: 1~2주 + 유지보수기간 a</p>
               <p>사용언어 : Javascript, jQuery, anime.js 등</p>
+              <p>퍼블:100% / 보여주기용 script : 90%</p>
               <div class="project-linkbox">
                 <a href="https://pangkurr.github.io/liveHoldem/">프로젝트보기</a>
                 <a href="https://pangkurr.github.io/liveHoldem/game.html" class="ingamebtn" data-text="페이지 이동후 animation 버튼을 눌러보세요">게임플레이보기</a>
@@ -274,6 +288,7 @@
               <p>제작기간: 2~3주 + 유지보수기간</p>
               <p>작업공간 : vscode, eclipse, webflow</p>
               <p>사용언어 : Javascript, jQuery, anime.js 등</p>
+              <p>퍼블:100% / 보여주기용 script : 90%</p>
               <div class="project-linkbox">
                 <a href="https://pangkurr.github.io/badaHoldem/">프로젝트보기</a>
                 <a href="https://pangkurr.github.io/badaHoldem/game.html" class="ingamebtn" data-text="페이지 이동후 6인 혹은 9인 버튼을 눌러보세요">게임플레이보기</a>
@@ -317,6 +332,7 @@
               <p>제작기간: 1~2주 + 작업중단</p>
               <p>작업공간 : vscode, webflow</p>
               <p>사용언어 : Javascript, jQuery</p>
+              <p>퍼블:100% / 보여주기용 script : 90%</p>
               <div class="project-linkbox">
                 <a href="https://pangkurr.github.io/evolution/">프로젝트보기</a>
                 <a href="https://pangkurr.github.io/evolution/powerball.html">게임메인화면</a>
@@ -366,6 +382,7 @@
               <p>제작기간: 약10일 + 유지보수기간 a</p>
               <p>작업공간 : webflow</p>
               <p>사용언어 : Javascript</p>
+              <p>퍼블:90%</p>
               <div class="project-linkbox">
                 <a href="https://pangkurr.github.io/gambleMaster/">프로젝트보기</a>
               </div>
@@ -417,6 +434,7 @@
               <p>제작기간 : 1~2주 + 유지보수기간</p>
               <p>작업공간 : vscode, eclipse, webflow</p>
               <p>사용언어 : Javascript, jQuery, html, css</p>
+              <p>퍼블:70% / 보여주기용 script : 90%</p>
               <div class="project-linkbox">
                 <a href="https://pangkurr.github.io/aceHoldem/">프로젝트보기</a>
                 <a href="https://pangkurr.github.io/aceHoldem/game.html" class="ingamebtn" data-text="페이지 이동후 '애니메이션보기' 버튼을 눌러보세요">게임플레이보기</a>
@@ -447,11 +465,11 @@
 
     <!-- library -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/rough-notation/0.5.1/rough-notation.iife.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/11.0.5/swiper-bundle.min.js"></script>
-    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/typed.js/2.1.0/typed.umd.min.js"></script>
     <!-- custom -->
-    <script src="script.js"></script>
+    <script type="module" src="script.js"></script>
   </body>
 </html>
